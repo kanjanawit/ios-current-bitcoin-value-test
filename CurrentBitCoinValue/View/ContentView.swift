@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ContentView: View {
     @StateObject var viewModel: ContentViewViewModel
-    
     var body: some View {
         VStack {
             Spacer()
