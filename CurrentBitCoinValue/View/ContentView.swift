@@ -129,7 +129,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView(
             viewModel: ContentViewViewModel(
-                selectedCurrency: currencies.first!,
+                selectedCurrency: currencies.first,
                 currencyValue: "",
                 currencies: currencies,
                 bitcoinValue: ""
