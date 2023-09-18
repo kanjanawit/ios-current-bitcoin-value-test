@@ -8,6 +8,7 @@
 import Foundation
 
 struct CurrencyLogDisplayModel {
+    let uuid: String = UUID().uuidString
     let date: String
     let usdRate: String
     let gbpRate: String

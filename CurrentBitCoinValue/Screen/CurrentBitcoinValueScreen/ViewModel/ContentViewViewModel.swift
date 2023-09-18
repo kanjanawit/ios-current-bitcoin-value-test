@@ -27,7 +27,8 @@ class ContentViewViewModel: ObservableObject {
     
     private func setupConverter() {
         $currencyValue.sink { [weak self] currencyValueInString in
-            self?.updateConversionValue(currencyValueInString: currencyValueInString)
+            let filterCommaString = currencyValueInString.filter({$0.isNumber || $0 == "."})
+            self?.updateConversionValue(currencyValueInString: filterCommaString)
         }
         .store(in: &cancellables)
     }

@@ -101,6 +101,7 @@ struct CurrencyToBitcoinConverterView: View {
                     
                     TextField("", text: $viewModel.currencyValue)
                         .textFieldStyle(.roundedBorder)
+                        .keyboardType(.decimalPad)
                 }
                 
                 HStack {

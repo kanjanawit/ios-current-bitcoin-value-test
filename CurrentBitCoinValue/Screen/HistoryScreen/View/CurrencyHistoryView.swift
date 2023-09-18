@@ -13,7 +13,7 @@ struct CurrencyHistoryView: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(viewModel.displayLogs, id: \.date) { displayLog in
+                ForEach(viewModel.displayLogs, id: \.uuid) { displayLog in
                     CurrencyLogView(displayLog: displayLog)
                 }
             }
