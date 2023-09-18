@@ -120,19 +120,9 @@ struct CurrencyToBitcoinConverterView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static let currencies = [
-        CurrencyBitCoinValueModel(currencyName: "USD", currencyValueForOneBitcoin: 35000),
-        CurrencyBitCoinValueModel(currencyName: "GBP", currencyValueForOneBitcoin: 45000),
-        CurrencyBitCoinValueModel(currencyName: "EUR", currencyValueForOneBitcoin: 25000)
-    ]
     static var previews: some View {
         ContentView(
-            viewModel: ContentViewViewModel(
-                selectedCurrency: currencies.first,
-                currencyValue: "",
-                currencies: currencies,
-                bitcoinValue: ""
-            )
+            viewModel: ContentViewViewModel(getLatestBitcoinValueUseCase: nil)
         )
     }
 }

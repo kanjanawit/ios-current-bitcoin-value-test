@@ -10,27 +10,19 @@ import SwiftUI
 import Combine
 
 class ContentViewViewModel: ObservableObject {
-    internal init(
-        selectedCurrency: CurrencyBitCoinValueModel?,
-        currencyValue: String,
-        currencies: [CurrencyBitCoinValueModel],
-        bitcoinValue: String
-    ) {
-        self.selectedCurrency = selectedCurrency
-        self.currencyValue = currencyValue
-        self.currencies = currencies
-        self.bitcoinValue = bitcoinValue
-        self.currencyValue = currencyValue
+    init(getLatestBitcoinValueUseCase: GetLatestBitcoinValueUseCaseProtocol?) {
+        self.getLatestBitcoinValueUseCase = getLatestBitcoinValueUseCase
         
         setupConverter()
         setupGetApi()
     }
     
     @Published var selectedCurrency: CurrencyBitCoinValueModel?
-    @Published var currencyValue: String
-    @Published var currencies: [CurrencyBitCoinValueModel]
-    @Published var bitcoinValue: String
+    @Published var currencyValue: String = ""
+    @Published var currencies: [CurrencyBitCoinValueModel] = []
+    @Published var bitcoinValue: String = ""
     
+    private var getLatestBitcoinValueUseCase: GetLatestBitcoinValueUseCaseProtocol?
     private var cancellables: [AnyCancellable] = []
     
     private func setupConverter() {
@@ -50,7 +42,7 @@ class ContentViewViewModel: ObservableObject {
     private func setupGetApi() {
         getLatestBitcoinValueApi()
         
-        let timer = Timer.publish(every: 5, on: .main, in: .common).autoconnect()
+        let timer = Timer.publish(every: 60, on: .main, in: .common).autoconnect()
         timer.sink { [weak self] _ in
             self?.getLatestBitcoinValueApi()
         }
@@ -58,30 +50,17 @@ class ContentViewViewModel: ObservableObject {
     }
     
     private func getLatestBitcoinValueApi() {
-        guard let url = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json") else{
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) {
-            [weak self] data, response, error in
-            
-            if let data = data {
-                if let string = String(data: data, encoding: .utf8){
-                    print(string)
-                    
-                }
-                let decoder = JSONDecoder()
-                
-                do {
-                    let responseObject = try decoder.decode(LatestBitcoinValueResponseModel.self, from: data)
-                    self?.handleLatestBitcoinValueApi(response: responseObject)
-                } catch {
-                    print(error)
-                }
+        Task.init {
+            let result = await self.getLatestBitcoinValueUseCase?.execute()
+            switch result {
+            case .success(let response):
+                self.handleLatestBitcoinValueApi(response: response)
+            case .failure(let error):
+                debugPrint(error)
+            case .none:
+                ()
             }
         }
-        
-        task.resume()
     }
     
     private func handleLatestBitcoinValueApi(response: LatestBitcoinValueResponseModel) {

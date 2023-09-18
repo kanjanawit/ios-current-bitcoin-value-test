@@ -11,6 +11,8 @@
 		175440BE2AB7DCBE00FAD537 /* CurrencyBitCoinValueModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440BD2AB7DCBE00FAD537 /* CurrencyBitCoinValueModel.swift */; };
 		175440C12AB7F04000FAD537 /* FloatingPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C02AB7F04000FAD537 /* FloatingPoint+Extension.swift */; };
 		175440C32AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */; };
+		175440C72AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C62AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift */; };
+		175440CA2AB7FB6F00FAD537 /* API+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C92AB7FB6F00FAD537 /* API+Extension.swift */; };
 		1766A7A32AAEF06400BAC827 /* CurrentBitCoinValueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */; };
 		1766A7A52AAEF06400BAC827 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766A7A42AAEF06400BAC827 /* ContentView.swift */; };
 		1766A7A72AAEF06500BAC827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1766A7A62AAEF06500BAC827 /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		175440BD2AB7DCBE00FAD537 /* CurrencyBitCoinValueModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyBitCoinValueModel.swift; sourceTree = "<group>"; };
 		175440C02AB7F04000FAD537 /* FloatingPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FloatingPoint+Extension.swift"; sourceTree = "<group>"; };
 		175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestBitcoinValueResponseModel.swift; sourceTree = "<group>"; };
+		175440C62AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestBitcoinValueUseCase.swift; sourceTree = "<group>"; };
+		175440C92AB7FB6F00FAD537 /* API+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Extension.swift"; sourceTree = "<group>"; };
 		1766A79F2AAEF06400BAC827 /* CurrentBitCoinValue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrentBitCoinValue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBitCoinValueApp.swift; sourceTree = "<group>"; };
 		1766A7A42AAEF06400BAC827 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -100,7 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				175440BD2AB7DCBE00FAD537 /* CurrencyBitCoinValueModel.swift */,
-				175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -109,8 +112,35 @@
 			isa = PBXGroup;
 			children = (
 				175440C02AB7F04000FAD537 /* FloatingPoint+Extension.swift */,
+				175440C92AB7FB6F00FAD537 /* API+Extension.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		175440C42AB7F6E500FAD537 /* CurrentBitcoinValueScreen */ = {
+			isa = PBXGroup;
+			children = (
+				175440B92AB7DC3000FAD537 /* View */,
+				175440BA2AB7DC4900FAD537 /* ViewModel */,
+				175440BB2AB7DC5D00FAD537 /* Model */,
+			);
+			path = CurrentBitcoinValueScreen;
+			sourceTree = "<group>";
+		};
+		175440C52AB7F73000FAD537 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				175440C62AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		175440C82AB7F77200FAD537 /* SharedModel */ = {
+			isa = PBXGroup;
+			children = (
+				175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */,
+			);
+			path = SharedModel;
 			sourceTree = "<group>";
 		};
 		1766A7962AAEF06400BAC827 = {
@@ -136,10 +166,10 @@
 		1766A7A12AAEF06400BAC827 /* CurrentBitCoinValue */ = {
 			isa = PBXGroup;
 			children = (
+				175440C82AB7F77200FAD537 /* SharedModel */,
+				175440C52AB7F73000FAD537 /* UseCase */,
+				175440C42AB7F6E500FAD537 /* CurrentBitcoinValueScreen */,
 				175440BF2AB7F02F00FAD537 /* Extension */,
-				175440BB2AB7DC5D00FAD537 /* Model */,
-				175440BA2AB7DC4900FAD537 /* ViewModel */,
-				175440B92AB7DC3000FAD537 /* View */,
 				1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */,
 				1766A7A62AAEF06500BAC827 /* Assets.xcassets */,
 				1766A7A82AAEF06500BAC827 /* CurrentBitCoinValue.entitlements */,
@@ -303,9 +333,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175440CA2AB7FB6F00FAD537 /* API+Extension.swift in Sources */,
 				175440C32AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift in Sources */,
 				1766A7A52AAEF06400BAC827 /* ContentView.swift in Sources */,
 				1766A7A32AAEF06400BAC827 /* CurrentBitCoinValueApp.swift in Sources */,
+				175440C72AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift in Sources */,
 				175440A72AB7DAE800FAD537 /* ContentViewViewModel.swift in Sources */,
 				175440C12AB7F04000FAD537 /* FloatingPoint+Extension.swift in Sources */,
 				175440BE2AB7DCBE00FAD537 /* CurrencyBitCoinValueModel.swift in Sources */,
