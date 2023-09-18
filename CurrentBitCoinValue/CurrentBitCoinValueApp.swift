@@ -11,7 +11,13 @@ import SwiftUI
 struct CurrentBitCoinValueApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView(selectedCurrency: ContentView_Previews.currencies.first!, currencies: ContentView_Previews.currencies)
+            ContentView(
+                viewModel: ContentViewViewModel(
+                    selectedCurrency: ContentView_Previews.currencies.first!,
+                    currencyValue: "",
+                    currencies: ContentView_Previews.currencies,
+                    bitcoinValue: "")
+            )
         }
     }
 }
