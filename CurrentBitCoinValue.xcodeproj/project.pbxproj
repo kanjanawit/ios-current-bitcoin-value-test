@@ -13,6 +13,12 @@
 		175440C32AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */; };
 		175440C72AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C62AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift */; };
 		175440CA2AB7FB6F00FAD537 /* API+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440C92AB7FB6F00FAD537 /* API+Extension.swift */; };
+		175440CD2AB800DA00FAD537 /* AppCurrencyLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440CC2AB800DA00FAD537 /* AppCurrencyLog.swift */; };
+		175440CF2AB8011900FAD537 /* CurrencyLogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440CE2AB8011900FAD537 /* CurrencyLogModel.swift */; };
+		175440D52AB802BF00FAD537 /* CurrencyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440D42AB802BF00FAD537 /* CurrencyHistoryView.swift */; };
+		175440D72AB802D100FAD537 /* CurrencyHistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440D62AB802D100FAD537 /* CurrencyHistoryViewModel.swift */; };
+		175440DA2AB8044600FAD537 /* CurrencyLogDisplayModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440D92AB8044600FAD537 /* CurrencyLogDisplayModel.swift */; };
+		175440E02AB80DE100FAD537 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175440DF2AB80DE100FAD537 /* Notification+Extension.swift */; };
 		1766A7A32AAEF06400BAC827 /* CurrentBitCoinValueApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */; };
 		1766A7A52AAEF06400BAC827 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766A7A42AAEF06400BAC827 /* ContentView.swift */; };
 		1766A7A72AAEF06500BAC827 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1766A7A62AAEF06500BAC827 /* Assets.xcassets */; };
@@ -46,6 +52,12 @@
 		175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestBitcoinValueResponseModel.swift; sourceTree = "<group>"; };
 		175440C62AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetLatestBitcoinValueUseCase.swift; sourceTree = "<group>"; };
 		175440C92AB7FB6F00FAD537 /* API+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Extension.swift"; sourceTree = "<group>"; };
+		175440CC2AB800DA00FAD537 /* AppCurrencyLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCurrencyLog.swift; sourceTree = "<group>"; };
+		175440CE2AB8011900FAD537 /* CurrencyLogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLogModel.swift; sourceTree = "<group>"; };
+		175440D42AB802BF00FAD537 /* CurrencyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryView.swift; sourceTree = "<group>"; };
+		175440D62AB802D100FAD537 /* CurrencyHistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyHistoryViewModel.swift; sourceTree = "<group>"; };
+		175440D92AB8044600FAD537 /* CurrencyLogDisplayModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyLogDisplayModel.swift; sourceTree = "<group>"; };
+		175440DF2AB80DE100FAD537 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
 		1766A79F2AAEF06400BAC827 /* CurrentBitCoinValue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CurrentBitCoinValue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentBitCoinValueApp.swift; sourceTree = "<group>"; };
 		1766A7A42AAEF06400BAC827 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -113,6 +125,7 @@
 			children = (
 				175440C02AB7F04000FAD537 /* FloatingPoint+Extension.swift */,
 				175440C92AB7FB6F00FAD537 /* API+Extension.swift */,
+				175440DF2AB80DE100FAD537 /* Notification+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -139,8 +152,60 @@
 			isa = PBXGroup;
 			children = (
 				175440C22AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift */,
+				175440CE2AB8011900FAD537 /* CurrencyLogModel.swift */,
 			);
 			path = SharedModel;
+			sourceTree = "<group>";
+		};
+		175440CB2AB8009300FAD537 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				175440CC2AB800DA00FAD537 /* AppCurrencyLog.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		175440D02AB8026900FAD537 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				175440D12AB8027F00FAD537 /* HistoryScreen */,
+				175440C42AB7F6E500FAD537 /* CurrentBitcoinValueScreen */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		175440D12AB8027F00FAD537 /* HistoryScreen */ = {
+			isa = PBXGroup;
+			children = (
+				175440D82AB8043400FAD537 /* Model */,
+				175440D32AB8029600FAD537 /* ViewModel */,
+				175440D22AB8028E00FAD537 /* View */,
+			);
+			path = HistoryScreen;
+			sourceTree = "<group>";
+		};
+		175440D22AB8028E00FAD537 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				175440D42AB802BF00FAD537 /* CurrencyHistoryView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		175440D32AB8029600FAD537 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				175440D62AB802D100FAD537 /* CurrencyHistoryViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		175440D82AB8043400FAD537 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				175440D92AB8044600FAD537 /* CurrencyLogDisplayModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		1766A7962AAEF06400BAC827 = {
@@ -166,9 +231,10 @@
 		1766A7A12AAEF06400BAC827 /* CurrentBitCoinValue */ = {
 			isa = PBXGroup;
 			children = (
+				175440D02AB8026900FAD537 /* Screen */,
+				175440CB2AB8009300FAD537 /* Persistence */,
 				175440C82AB7F77200FAD537 /* SharedModel */,
 				175440C52AB7F73000FAD537 /* UseCase */,
-				175440C42AB7F6E500FAD537 /* CurrentBitcoinValueScreen */,
 				175440BF2AB7F02F00FAD537 /* Extension */,
 				1766A7A22AAEF06400BAC827 /* CurrentBitCoinValueApp.swift */,
 				1766A7A62AAEF06500BAC827 /* Assets.xcassets */,
@@ -333,9 +399,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175440CD2AB800DA00FAD537 /* AppCurrencyLog.swift in Sources */,
 				175440CA2AB7FB6F00FAD537 /* API+Extension.swift in Sources */,
 				175440C32AB7F69600FAD537 /* LatestBitcoinValueResponseModel.swift in Sources */,
+				175440D52AB802BF00FAD537 /* CurrencyHistoryView.swift in Sources */,
+				175440E02AB80DE100FAD537 /* Notification+Extension.swift in Sources */,
+				175440CF2AB8011900FAD537 /* CurrencyLogModel.swift in Sources */,
+				175440DA2AB8044600FAD537 /* CurrencyLogDisplayModel.swift in Sources */,
 				1766A7A52AAEF06400BAC827 /* ContentView.swift in Sources */,
+				175440D72AB802D100FAD537 /* CurrencyHistoryViewModel.swift in Sources */,
 				1766A7A32AAEF06400BAC827 /* CurrentBitCoinValueApp.swift in Sources */,
 				175440C72AB7F74E00FAD537 /* GetLatestBitcoinValueUseCase.swift in Sources */,
 				175440A72AB7DAE800FAD537 /* ContentViewViewModel.swift in Sources */,

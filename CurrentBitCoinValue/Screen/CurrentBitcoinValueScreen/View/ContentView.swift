@@ -10,17 +10,21 @@ import SwiftUI
 struct ContentView: View {
     @StateObject var viewModel: ContentViewViewModel
     var body: some View {
-        VStack {
-            Spacer()
-            CurrentBitcoinValueView()
-            
-            Spacer()
-            
-            CurrencyToBitcoinConverterView()
-            
-            Spacer()
+        NavigationView {
+            VStack {
+                Spacer()
+                CurrentBitcoinValueView()
+                
+                Spacer()
+                
+                CurrencyToBitcoinConverterView()
+                
+                Spacer()
+            }
+            .padding()
+            .navigationTitle("Current BitCoin Value")
+            .navigationBarTitleDisplayMode(.inline)
         }
-        .padding()
         .environmentObject(viewModel)
     }
 }
@@ -31,24 +35,21 @@ struct CurrentBitcoinValueView: View {
         HStack {
             Spacer()
             VStack {
-                Text("Current BitCoin Value")
-                    .font(.largeTitle)
-                    .padding(.bottom, 10)
-                
                 HStack(spacing: 3) {
                     ForEach(viewModel.currencies, id: \.hashValue) { currency in
                         OneBitCoinCurrencyValueView(currencyName: currency.currencyName, currencyValueForOneCoin: currency.currencyValueString)
                     }
                 }
+                .fixedSize(horizontal: true, vertical: true)
                 
-                Button(action: {
-                    // Navigate to Currency History
-                }, label: {
+                NavigationLink(destination: CurrencyHistoryView(viewModel: CurrencyHistoryViewModel())) {
                     Text("Value History")
                         .font(.title3)
                         .foregroundColor(.blue)
-                })
+                        .contentShape(Rectangle())
+                }
                 .padding(.top, 10)
+                
             }
             
             Spacer()

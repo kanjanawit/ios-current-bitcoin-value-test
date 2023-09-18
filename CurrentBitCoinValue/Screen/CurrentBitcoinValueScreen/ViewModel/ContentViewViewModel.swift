@@ -73,6 +73,8 @@ class ContentViewViewModel: ObservableObject {
         let eur = CurrencyBitCoinValueModel(currencyName: response.bpi.EUR.code, currencyValueForOneBitcoin: eurRate)
         let currencies = [usd, gbp, eur]
         setCurrencyData(currencies: currencies)
+        
+        AppCurrencyLog.shared.logData(usdRate: usdRate, gbpRate: gbpRate, eurRate: eurRate)
     }
     
     private func setCurrencyData(currencies: [CurrencyBitCoinValueModel]) {
